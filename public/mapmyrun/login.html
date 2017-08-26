@@ -1,0 +1,76 @@
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml"><!--<![endif]--><head>
+	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+	<title>Map My Run - Login</title>
+	<script async="" src="touch/cloudflare.min.js"></script>
+	<script src="touch/jquery.js"></script>
+	
+	<script type="text/javascript">
+//&lt;![CDATA[
+try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag2:1,mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/dok2v=1613a3a185/"},atok:"5448f567a96bf6347559ec99f266f350",petok:"ee053c05a9abcd8246a8a54d33e63aae779c497f-1414419542-1800",zone:"mindfed.com",rocket:"0",apps:{}}];CloudFlare.push({"apps":{"ape":"02bcc995b1476929c5716e15997ca22f"}});!function(a,b){a=document.createElement("script"),b=document.getElementsByTagName("script")[0],a.async=!0,a.src="//ajax.cloudflare.com/cdn-cgi/nexp/dok2v=919620257c/cloudflare.min.js",b.parentNode.insertBefore(a,b)}()}}catch(e){};
+//]]&gt;
+</script>
+<link media="all" type="text/css" href="resources/css/buttons.min.css" id="buttons-css" rel="stylesheet">
+<link media="all" type="text/css" href="resources/css/fonts.css" id="open-sans-css" rel="stylesheet">
+<link media="all" type="text/css" href="resources/css/dashicons.min.css" id="dashicons-css" rel="stylesheet">
+<link media="all" type="text/css" href="resources/css/login.min.css" id="login-css" rel="stylesheet">
+<meta content="noindex,follow" name="robots">
+	<style type="text/css">.cf-hidden { display: none; } .cf-invisible { visibility: hidden; }</style></head>
+	<body class="login login-action-login wp-core-ui  locale-en-us">
+	<div id="login">
+		<h1><a tabindex="-1" >Map My Run</a></h1>
+	
+<form  name="loginform">
+	<p>
+		<label for="user_login">Username<br>
+		<input type="text" size="20" value="" class="input" id="user_login" name="log"></label>
+	</p>
+	<p>
+		<label for="user_pass">Password<br>
+		<input type="password" size="20" value="" class="input" id="user_pass" name="pwd"></label>
+	</p>
+	<p class="submit">
+		<input type="button" onclick="authenticate()" value="Log In" class="button button-primary button-large" id="wp-submit" name="wp-submit">
+	</p>
+</form>
+
+<script type="text/javascript">
+
+function authenticate(){
+				$.ajax({
+					url:'/user-service',
+					type:'POST',
+					data:{
+						username:document.getElementById('user_login').value,
+						password:document.getElementById('user_pass').value	
+					},
+					success:function(data, textStatus, jqXHR){
+						var loginObj = eval('('+data+')');
+						if(loginObj.success){
+							window.location = 'index.html';
+						}
+						
+					}
+				});
+			}
+
+function wp_attempt_focus(){
+setTimeout( function(){ try{
+d = document.getElementById('user_login');
+d.focus();
+d.select();
+} catch(e){}
+}, 200);
+}
+
+wp_attempt_focus();
+if(typeof wpOnload=='function')wpOnload();
+</script>
+
+	
+	</div>
+
+	
+		<div class="clear"></div>
+	
+	
+	</body></html>
